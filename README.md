@@ -2,17 +2,18 @@
 
 This repository contains code accompanying the paper
 
-> *Growth in affine Hecke categories*.
+> Jensen O'Sullivan, *Growth in affine Hecke categories*.
 
 The repository is the one cited in the paper as
-  
+
+> K. Coulembier, J. O'Sullivan, and D. Tubbenhauer,  
 > *Code and more for “Growth in affine Hecke categories”*, 2026.
 
 The files collect the computer calculations used for the examples and numerical checks discussed in the paper, in particular:
 
-- tensor-power calculations for Kazhdan--Lusztig basis elements, including the affine \(\widetilde A_2\) wall element \(b_{123}\);
-- polynomial-ray calculations for \(\nu_\delta(b_w)\) in affine types \(\widetilde A_1\) and \(\widetilde A_2\);
-- a Python/Colab notebook reproducing the long affine \(\widetilde A_2\) tensor-power sequence and the numerical plots supporting the predicted \(n^{-3/2}8^n\) growth.
+- tensor-power calculations for Kazhdan--Lusztig basis elements, including the affine $\widetilde A_2$ wall element $b_{123}$;
+- polynomial-ray calculations for $\nu_\delta(b_w)$ in affine types $\widetilde A_1$ and $\widetilde A_2$;
+- a Python/Colab notebook reproducing the long affine $\widetilde A_2$ tensor-power sequence and the numerical plots supporting the predicted $n^{-3/2}8^n$ growth.
 
 ## Files
 
@@ -20,21 +21,21 @@ The files collect the computer calculations used for the examples and numerical 
 
 This Magma script computes tensor powers
 
-\[
+$$
     b^n = \sum_x a_x(n) b_x
-\]
+$$
 
 in the Kazhdan--Lusztig basis and prints:
 
-- \(\nu(b^n)=\sum_x a_x(n)\), evaluated at \(v=1\);
-- \(\nu_\delta(b^n)\), the standard-basis coefficient sum at \(v=1\);
-- the number of KL basis terms with nonzero coefficient at \(v=1\);
+- $\nu(b^n)=\sum_x a_x(n)$, evaluated at $v=1$;
+- $\nu_\delta(b^n)$, the standard-basis coefficient sum at $v=1$;
+- the number of KL basis terms with nonzero coefficient at $v=1$;
 - optionally, normalized values such as
-  \[
+  $$
       \frac{\nu(b^n)n^{3/2}}{\beta^n},
       \qquad \beta=\nu_\delta(b),
-  \]
-  for the affine \(\widetilde A_2\) test case.
+  $$
+  for the affine $\widetilde A_2$ test case.
 
 The default parameters are
 
@@ -46,86 +47,86 @@ ELEMENT_MODE := "KL";
 
 so that the script studies
 
-\[
+$$
     b=b_{123}.
-\]
+$$
 
-With these defaults, the sequence \(\nu(b^n)\) begins
+With these defaults, the sequence $\nu(b^n)$ begins
 
-\[
+$$
     1,\ 3,\ 17,\ 83,\ 472,\ldots
-\]
+$$
 
 as recorded in the paper.
 
-The file also contains an optional pretty-printer for small affine \(\widetilde A_2\) expansions, using the notation \(x_j,y_j,z_j,\theta(m,n)\) from the paper.
+The file also contains an optional pretty-printer for small affine $\widetilde A_2$ expansions, using the notation $x_j,y_j,z_j,\theta(m,n)$ from the paper.
 
 ### `hecke_polynomial_rays_clean.m`
 
 This Magma script computes the polynomial-growth quantity
 
-\[
+$$
     \nu_\delta(b_w),
-\]
+$$
 
-i.e. the sum of standard-basis coefficients of \(b_w\) at \(v=1\), along the ray families considered in the paper.
+i.e. the sum of standard-basis coefficients of $b_w$ at $v=1$, along the ray families considered in the paper.
 
 It contains two blocks.
 
-#### Affine \(\widetilde A_1\)
+#### Affine $\widetilde A_1$
 
 The two alternating rays
 
-\[
+$$
     1,12,121,1212,\ldots
-\]
+$$
 
 and
 
-\[
+$$
     2,21,212,2121,\ldots
-\]
+$$
 
 are tested against the formula
 
-\[
+$$
     \nu_\delta(b_w)=2\ell(w)+1.
-\]
+$$
 
-#### Affine \(\widetilde A_2\)
+#### Affine $\widetilde A_2$
 
-The script computes \(\nu_\delta\) for the wall families
+The script computes $\nu_\delta$ for the wall families
 
-\[
+$$
     x_j,
     \qquad
     y_j,
     \qquad
     z_j,
-\]
+$$
 
-using the notation of the paper. These are the singular wall rays whose polynomial growth is analyzed in the affine \(\widetilde A_2\) section.
+using the notation of the paper. These are the singular wall rays whose polynomial growth is analyzed in the affine $\widetilde A_2$ section.
 
-The output includes the raw values and, optionally, the diagnostic ratios \(p_j/j^2\), useful for seeing the expected quadratic growth numerically.
+The output includes the raw values and, optionally, the diagnostic ratios $p_j/j^2$, useful for seeing the expected quadratic growth numerically.
 
 ### `KL_affineA2.ipynb`
 
-This Python/Colab notebook gives a separate affine \(\widetilde A_2\) computation for the guiding example \(b_{123}\). It:
+This Python/Colab notebook gives a separate affine $\widetilde A_2$ computation for the guiding example $b_{123}$. It:
 
-- implements affine \(\widetilde A_2\) using affine permutations in window notation;
+- implements affine $\widetilde A_2$ using affine permutations in window notation;
 - uses the Libedinsky--Patimo families and triangular reduction to compute the tensor-power sequence recursively;
 - reproduces
-  \[
+  $$
       1,\ 1,\ 3,\ 17,\ 83,\ 472,\ 2813,\ \ldots
-  \]
+  $$
   up to the longer range used for numerical experimentation;
 - plots the normalized sequence
-  \[
+  $$
       \frac{b_n}{n^{-3/2}8^n},
-  \]
+  $$
   together with nearby comparison normalizations, to visualize the predicted exponent.
 
-The notebook is mainly intended as a transparent numerical companion to the affine \(\widetilde A_2\) discussion in the paper. It can be opened directly in Jupyter or Google Colab.
+The notebook is mainly intended as a transparent numerical companion to the affine $\widetilde A_2$ discussion in the paper. It can be opened directly in Jupyter or Google Colab.
 
 ## Requirements
 
@@ -186,8 +187,8 @@ PRINT_A2_QUADRATIC_RATIOS := true;
 ## Conventions
 
 - The Magma scripts use the generator numbering provided by Magma/IHecke.
-- In affine \(\widetilde A_2\), the word `[1,2,3]` denotes \(s_1s_2s_3\).
-- `ELEMENT_MODE := "KL"` means the single KL basis element \(b_w\), not the product of simple KL generators \(b_{s_{i_1}}\cdots b_{s_{i_k}}\). The tensor-power example in the paper uses the former.
+- In affine $\widetilde A_2$, the word `[1,2,3]` denotes $s_1s_2s_3$.
+- `ELEMENT_MODE := "KL"` means the single KL basis element $b_w$, not the product of simple KL generators $b_{s_{i_1}}\cdots b_{s_{i_k}}$. The tensor-power example in the paper uses the former.
 
 ## Scope
 
