@@ -1,23 +1,25 @@
 # Code for *Growth in affine Hecke categories*
 
-This repository contains Magma code accompanying the paper
+This repository contains code accompanying the paper
 
-> *Growth in affine Hecke categories*.
+> Jensen O'Sullivan, *Growth in affine Hecke categories*.
 
 The repository is the one cited in the paper as
- 
+
+> K. Coulembier, J. O'Sullivan, and D. Tubbenhauer,  
 > *Code and more for “Growth in affine Hecke categories”*, 2026.
 
-The scripts collect the computer calculations used for the examples and numerical checks discussed in the paper, in particular:
+The files collect the computer calculations used for the examples and numerical checks discussed in the paper, in particular:
 
 - tensor-power calculations for Kazhdan--Lusztig basis elements, including the affine \(\widetilde A_2\) wall element \(b_{123}\);
-- polynomial-ray calculations for \(\nu_\delta(b_w)\) in affine types \(\widetilde A_1\) and \(\widetilde A_2\).
+- polynomial-ray calculations for \(\nu_\delta(b_w)\) in affine types \(\widetilde A_1\) and \(\widetilde A_2\);
+- a Python/Colab notebook reproducing the long affine \(\widetilde A_2\) tensor-power sequence and the numerical plots supporting the predicted \(n^{-3/2}8^n\) growth.
 
 ## Files
 
 ### `hecke_tensor_powers_clean.m`
 
-This script computes tensor powers
+This Magma script computes tensor powers
 
 \[
     b^n = \sum_x a_x(n) b_x
@@ -61,7 +63,7 @@ The file also contains an optional pretty-printer for small affine \(\widetilde 
 
 ### `hecke_polynomial_rays_clean.m`
 
-This script computes the polynomial-growth quantity
+This Magma script computes the polynomial-growth quantity
 
 \[
     \nu_\delta(b_w),
@@ -107,9 +109,30 @@ using the notation of the paper. These are the singular wall rays whose polynomi
 
 The output includes the raw values and, optionally, the diagnostic ratios \(p_j/j^2\), useful for seeing the expected quadratic growth numerically.
 
+### `KL_affineA2.ipynb`
+
+This Python/Colab notebook gives a separate affine \(\widetilde A_2\) computation for the guiding example \(b_{123}\). It:
+
+- implements affine \(\widetilde A_2\) using affine permutations in window notation;
+- uses the Libedinsky--Patimo families and triangular reduction to compute the tensor-power sequence recursively;
+- reproduces
+  \[
+      1,\ 1,\ 3,\ 17,\ 83,\ 472,\ 2813,\ \ldots
+  \]
+  up to the longer range used for numerical experimentation;
+- plots the normalized sequence
+  \[
+      \frac{b_n}{n^{-3/2}8^n},
+  \]
+  together with nearby comparison normalizations, to visualize the predicted exponent.
+
+The notebook is mainly intended as a transparent numerical companion to the affine \(\widetilde A_2\) discussion in the paper. It can be opened directly in Jupyter or Google Colab.
+
 ## Requirements
 
-The scripts use:
+### Magma files
+
+The two `.m` scripts use:
 
 1. **Magma**;
 2. Joel Gibson's **IHecke** package.
@@ -134,9 +157,13 @@ magma /path/to/growthaffinehecke/hecke_tensor_powers_clean.m
 magma /path/to/growthaffinehecke/hecke_polynomial_rays_clean.m
 ```
 
+### Notebook
+
+The notebook uses standard Python together with `matplotlib` for plotting. It runs naturally in Google Colab or in a local Jupyter environment.
+
 ## Parameters
 
-Both files have a short user-parameter block near the top. The most useful options are:
+Both Magma files have a short user-parameter block near the top. The most useful options are:
 
 ### Tensor powers
 
@@ -159,10 +186,10 @@ PRINT_A2_QUADRATIC_RATIOS := true;
 
 ## Conventions
 
-- The scripts use the generator numbering provided by Magma/IHecke.
+- The Magma scripts use the generator numbering provided by Magma/IHecke.
 - In affine \(\widetilde A_2\), the word `[1,2,3]` denotes \(s_1s_2s_3\).
 - `ELEMENT_MODE := "KL"` means the single KL basis element \(b_w\), not the product of simple KL generators \(b_{s_{i_1}}\cdots b_{s_{i_k}}\). The tensor-power example in the paper uses the former.
 
 ## Scope
 
-These scripts are intended to make the computations used in the paper transparent and reproducible. They are deliberately focused on the two main computational tasks needed there, rather than on the larger collection of exploratory Magma files used during development.
+These files are intended to make the computations used in the paper transparent and reproducible. They are deliberately focused on the main computational tasks needed there, rather than on the larger collection of exploratory files used during development.
