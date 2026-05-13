@@ -2,11 +2,10 @@
 
 This repository contains code accompanying the paper
 
-> Jensen O'Sullivan, *Growth in affine Hecke categories*.
+> *Growth in affine Hecke categories*.
 
 The repository is the one cited in the paper as
-
-> K. Coulembier, J. O'Sullivan, and D. Tubbenhauer,  
+  
 > *Code and more for “Growth in affine Hecke categories”*, 2026.
 
 The files collect the computer calculations used for the examples and numerical checks discussed in the paper, in particular:
