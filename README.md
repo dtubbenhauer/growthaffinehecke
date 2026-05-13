@@ -2,11 +2,10 @@
 
 This repository contains code accompanying the paper
 
-> Jensen O'Sullivan, *Growth in affine Hecke categories*.
+> *Growth in affine Hecke categories*.
 
 The repository is the one cited in the paper as
 
-> K. Coulembier, J. O'Sullivan, and D. Tubbenhauer,  
 > *Code and more for “Growth in affine Hecke categories”*, 2026.
 
 The files collect the computer calculations used for the examples and numerical checks discussed in the paper, in particular:
@@ -115,15 +114,10 @@ This Python/Colab notebook gives a separate affine $\widetilde A_2$ computation 
 
 - implements affine $\widetilde A_2$ using affine permutations in window notation;
 - uses the Libedinsky--Patimo families and triangular reduction to compute the tensor-power sequence recursively;
-- reproduces
-  $$
-      1,\ 1,\ 3,\ 17,\ 83,\ 472,\ 2813,\ \ldots
-  $$
+- reproduces $b_n$
   up to the longer range used for numerical experimentation;
 - plots the normalized sequence
-  $$
-      \frac{b_n}{n^{-3/2}8^n},
-  $$
+  $b_n/(n^{-3/2}8^n)$,
   together with nearby comparison normalizations, to visualize the predicted exponent.
 
 The notebook is mainly intended as a transparent numerical companion to the affine $\widetilde A_2$ discussion in the paper. It can be opened directly in Jupyter or Google Colab.
