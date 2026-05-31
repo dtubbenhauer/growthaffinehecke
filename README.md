@@ -1,4 +1,4 @@
-# Code for *Growth in affine Hecke categories*
+# Code and Erratum for *Growth in affine Hecke categories*
 
 This repository contains code accompanying the paper
 
@@ -187,3 +187,8 @@ PRINT_A2_QUADRATIC_RATIOS := true;
 ## Scope
 
 These files are intended to make the computations used in the paper transparent and reproducible. They are deliberately focused on the main computational tasks needed there, rather than on the larger collection of exploratory files used during development.
+
+
+## Erratum
+
+Empty so far.
