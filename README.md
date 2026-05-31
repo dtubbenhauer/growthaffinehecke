@@ -14,6 +14,14 @@ The files collect the computer calculations used for the examples and numerical 
 - polynomial-ray calculations for $\nu_\delta(b_w)$ in affine types $\widetilde A_1$ and $\widetilde A_2$;
 - a Python/Colab notebook reproducing the long affine $\widetilde A_2$ tensor-power sequence and the numerical plots supporting the predicted $n^{-3/2}8^n$ growth.
 
+## Contact
+
+If you find any errors in the paper **please email me**:
+
+[dtubbenhauer@gmail.com](mailto:dtubbenhauer@gmail.com?subject=[GitHub]%web-reps)
+
+Same goes for any errors related to this page.
+
 ## Files
 
 ### `hecke_tensor_powers_clean.m`
